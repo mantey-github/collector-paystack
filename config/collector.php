@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+
 //use Collector\Features;
 
 return [
@@ -90,7 +91,7 @@ return [
         // Features::mustAcceptTerms(),
         // Features::euVatCollection(['home-country' => 'BE']),
         // Features::receiptEmails(['custom-addresses' => true]),
-       // Features::paymentNotificationEmails(),
+        // Features::paymentNotificationEmails(),
     ],
 
     /*

@@ -17,11 +17,11 @@ class CollectorServiceProvider extends ServiceProvider
          * Optional methods to load your package assets
          */
         // $this->loadTranslationsFrom(__DIR__.'/../resources/lang', 'collector');
-         $this->loadViewsFrom(__DIR__.'/../resources/views', 'collector');
-         $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
-         $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
+        $this->loadViewsFrom(__DIR__.'/../resources/views', 'collector');
+        $this->loadMigrationsFrom(__DIR__.'/../database/migrations');
+        $this->loadRoutesFrom(__DIR__.'/../routes/routes.php');
 
-         Livewire::component('billing', BillingPortal::class);
+        // Livewire::component('billing', BillingPortal::class);
 
         if ($this->app->runningInConsole()) {
             $this->publishes([
