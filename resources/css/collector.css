@@ -2,10 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn {
-    background-color: red;
-}
-
 @layer utilities {
     .w-92 {
         width: 24rem;
