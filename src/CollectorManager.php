@@ -4,5 +4,4 @@ namespace Collector;
 
 class CollectorManager
 {
-
 }

@@ -1,4 +1,5 @@
 const mix = require('laravel-mix');
+const {react} = require("laravel-mix");
 
 /*
  |--------------------------------------------------------------------------
@@ -11,8 +12,9 @@ const mix = require('laravel-mix');
  |
  */
 
-mix.postCss('resources/css/collector.css', 'public/css/app.css', [
-        require('tailwindcss'),
+mix.js('resources/js/app.js', 'public/js/app.js').react()
+    .postCss('resources/css/collector.css', 'public/css/app.css', [
+        require('tailwindcss')
     ]);
 
 mix.disableSuccessNotifications();
