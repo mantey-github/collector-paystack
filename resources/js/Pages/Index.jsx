@@ -6,6 +6,7 @@ import IconVisa from '../Components/Icon/IconVisa';
 import IconAmExp from '../Components/Icon/IconAmExp';
 import IconMasterCard from '../Components/Icon/IconMasterCard';
 import IconCheckmark from '../Components/Icon/IconCheckmark';
+import IconViewMore from '../Components/Icon/IconViewMore';
 
 export default function Index() {
    const receiptViewRef = React.useRef(null);
@@ -127,7 +128,10 @@ export default function Index() {
                                 {
                                     new Array(10).fill(null).map((_, index) => (
                                     <div className='flex flex-row space-x-8 items-center py-4 text-[15px]' key={index}>
-                                        <div className='font-semibold text-gray-800'>Feb {10 + index}th, 2023</div>
+                                        <div className='font-semibold text-gray-800 flex items-center cursor-pointer hover:underline'>
+                                            Feb {10 + index}th, 2023
+                                            <IconViewMore className="w-[13px] h-[13px] inline-flex fill-current ml-2"/>
+                                        </div>
                                         <div className='text-gray-800'>Paystack</div>
                                         <div>
                                             {/* <span className='bg-[#E9F9E6] text-[#3BBA4A] rounded-md px-[7px] py-[1.5px] inline-flex text-[13px] font-bold'>
