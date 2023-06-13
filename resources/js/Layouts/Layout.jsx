@@ -1,7 +1,6 @@
-import { useState } from 'react';
+import React from 'react';
 import { Link } from '@inertiajs/react';
 import IconReceiptsV2 from '../Components/Icon/IconReceiptsV2';
-import IconOption from '../Components/Icon/IconOption';
 
 export default function Layout({children, onViewReceipt}) {
 

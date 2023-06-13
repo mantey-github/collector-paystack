@@ -1,5 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme')
 
+/** @type {import('tailwindcss').Config} */
 module.exports = {
     content: ['./resources/views/**/*.blade.php', './resources/js/**/*.{jsx,js}'],
     theme: {
@@ -9,4 +10,5 @@ module.exports = {
             },
         },
     },
+    plugins: [require('@tailwindcss/forms')],
 }

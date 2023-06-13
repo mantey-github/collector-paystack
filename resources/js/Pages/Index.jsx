@@ -1,14 +1,16 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
-import PrimaryButton from '../Components/PrimaryButton';
+import PrimaryButton from '../Components/Button/PrimaryButton';
 import Layout from '../Layouts/Layout';
 import IconVisa from '../Components/Icon/IconVisa';
 import IconAmExp from '../Components/Icon/IconAmExp';
 import IconMasterCard from '../Components/Icon/IconMasterCard';
 import IconCheckmark from '../Components/Icon/IconCheckmark';
 import IconViewMore from '../Components/Icon/IconViewMore';
+import CancelSubscription from '../Components/Modal/CancelSubscription';
 
 export default function Index() {
+const [confirmCancelSubscription, setConfirmCancelSubscription] = React.useState(false);
    const receiptViewRef = React.useRef(null);
    
    const handleViewReceipt = () => {
@@ -69,7 +71,10 @@ export default function Index() {
                             border-gray-300 border-t-gray-300/20 border-x-gray-300/40 rounded-b-md'>
                                 <PrimaryButton>Change Subscription Plan</PrimaryButton>
                                 
-                                <button className='inline-flex items-center px-4 py-2 bg-transparent border border-red-500 
+                                <button 
+                                    type='button'
+                                    onClick={() => setConfirmCancelSubscription(true)}
+                                    className='inline-flex items-center px-4 py-2 bg-transparent border border-red-500 
                                 rounded-md font-semibold text-xs text-red-600 uppercase tracking-widest hover:bg-red-500/40
                                 focus:bg-red-500/40 active:bg-red-900/40 focus:outline-none focus:ring-2 focus:ring-red-500 
                                 focus:ring-offset-2 transition ease-in-out duration-150'>
@@ -86,10 +91,10 @@ export default function Index() {
                                     <div className='text-base text-gray-600 items-center inline-flex'>
                                         Your current payment info is 
                                         <span className='font-bold text-gray-800 inline-flex ml-2 items-center'>
-                                            <span className='w-10 h-[25px] border flex items-center justify-center rounded-sm mr-2'>
+                                            <span className='w-[32px] h-[22px] border flex items-center justify-center rounded-sm mr-2'>
                                                 {/* <IconMasterCard className="w-8 h-6"/> */}
                                                 {/* <IconAmExp className="w-7 h-4"/> */}
-                                                <IconVisa className="w-8 h-8"/>
+                                                <IconVisa className="w-6 h-6"/>
                                             </span> •••• •••• •••• 5964
                                         </span>
                                     </div>
@@ -110,7 +115,7 @@ export default function Index() {
                             <p className="text-gray-600 leading-tight mb-1 text-sm uppercase font-medium">FOR CURRENT PLAN</p>
                             
                             <div className="bg-[#E7E9EA]/50 border border-gray-400 py-2 px-4 w-full block 
-                                text-[15px] rounded-md mb-4 text-gray-700 space-y-4">
+                                text-[15px] rounded-md mb-4 text-gray-700 space-y-4 shadow-inner">
                                 <div>
                                     <h3 className="font-semibold text-gray-800 leading-tight">Plan</h3>
                                     <p className='text-base'>Hobby</p>
@@ -129,22 +134,27 @@ export default function Index() {
                                     new Array(10).fill(null).map((_, index) => (
                                     <div className='flex flex-row space-x-8 items-center py-4 text-[15px]' key={index}>
                                         <div className='font-semibold text-gray-800 flex items-center cursor-pointer hover:underline'>
-                                            Feb {10 + index}th, 2023
+                                            Feb {10 + (10 - index)}th, 2023
                                             <IconViewMore className="w-[13px] h-[13px] inline-flex fill-current ml-2"/>
                                         </div>
                                         <div className='text-gray-800'>Paystack</div>
                                         <div>
-                                            {/* <span className='bg-[#E9F9E6] text-[#3BBA4A] rounded-md px-[7px] py-[1.5px] inline-flex text-[13px] font-bold'>
-                                                Paid
-                                            </span> */}
-                                            <span className='bg-[#CACED0]/50 text-gray-600 rounded-md px-[7px] py-[1.5px] inline-flex text-[13px] font-bold'>
-                                                Overdue
-                                            </span>
+                                            {
+                                               index < 8 ? (
+                                                    <span className='bg-[#E9F9E6] text-[#3BBA4A] rounded-md px-[7px] py-[1.5px] inline-flex text-[13px] font-bold'>
+                                                        Paid
+                                                    </span>
+                                               ) : (
+                                                    <span className='bg-[#CACED0]/50 text-gray-600 rounded-md px-[7px] py-[1.5px] inline-flex text-[13px] font-bold'>
+                                                        Overdue
+                                                    </span>
+                                               )
+                                            }
                                         </div>
                                         <div className='text-gray-800 inline-flex'>
                                             <span className='inline-flex items-center'>
-                                                <span className='w-[35px] h-[24px] border flex items-center justify-center rounded-sm mr-2'>
-                                                    <IconVisa className="w-7 h-7"/>
+                                                <span className='w-[32px] h-[22px] border flex items-center justify-center rounded-sm mr-2'>
+                                                    <IconVisa className="w-6 h-6"/>
                                                 </span> <span className="text-[12px] mr-1">•••• •••• ••••</span> 5964
                                             </span>
                                         </div>
@@ -158,8 +168,12 @@ export default function Index() {
                     </div>
                 </div> 
             </div>
+
+            <CancelSubscription 
+                show={confirmCancelSubscription} 
+                onCloseModal={() => setConfirmCancelSubscription(false)}
+            />
         </Layout>
    )
-
 }
   

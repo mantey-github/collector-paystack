@@ -1,7 +1,7 @@
 import React from 'react';
 import { Head } from '@inertiajs/react';
 import Layout from '../Layouts/Layout';
-import PrimaryButton from '../Components/PrimaryButton';
+import PrimaryButton from '../Components/Button/PrimaryButton';
 import IconCheckmark from '../Components/Icon/IconCheckmark';
 
 export default function Plans(props) {
