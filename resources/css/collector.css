@@ -6,4 +6,8 @@
     .w-92 {
         width: 24rem;
     }
+
+    .bg-site {
+        background: linear-gradient(352.43deg,hsla(0,0%,100%,.2), rgba(202,206,208,0.1) 78.01%, rgba(221,221,221, 0.6)), #fff;
+    }
 }

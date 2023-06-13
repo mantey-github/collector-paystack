@@ -17,6 +17,11 @@ class BillingPortalController
             'jsPath' => __DIR__.'/../../../public/js/app.js',
         ]);
 
-        return Inertia::render('BillingPortal');
+        // Index.jsx ----> Subscribed (or user with a Subscription)
+        // Plans.jsx ----> when user is not subscribe (or user wants to change Subscription)
+
+        return Inertia::render('Index', [
+            'user' => 'mantey'
+        ]);
     }
 }

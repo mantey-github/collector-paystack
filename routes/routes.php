@@ -12,6 +12,6 @@ Route::group([
             //'middleware' => array_merge(config('collector.middleware', ['web', 'auth'])),
             'prefix' => config('collector.path'),
         ], function () {
-            Route::get('/{type?}/{id?}', BillingPortalController::class)->name('collector.portal');
+            Route::get('/{type?}/{id?}', BillingPortalController::class)->name('collector.portal');   
         });
     });
